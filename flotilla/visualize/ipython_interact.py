@@ -139,15 +139,15 @@ class Interactive(object):
                 # Make the directory if it's not already there
                 self.maybe_make_directory(savefile)
                 # f = plt.gcf()
-                pca.reduced_fig.savefig(savefile)
-
+                pca.reduced_fig.savefig(savefile, format='pdf')
+                sys.stderr.write(os.getcwd())
                 # add "violins" after the provided filename, but before the
                 # extension
                 violins_file = "_".join([".".join(savefile.split('.')[:-1]),
                                          'violins']) + "." + \
                                savefile.split('.')[-1]
                 if plot_violins:
-                    pca.violins_fig.savefig(violins_file)
+                    pca.violins_fig.savefig(violins_file, format='pdf')
 
         if feature_subsets is None:
             feature_subsets = Interactive.get_feature_subsets(self, data_types)
@@ -221,7 +221,7 @@ class Interactive(object):
                             weight_function=weight_fun)
             if savefile is not '':
                 self.maybe_make_directory(savefile)
-                plt.gcf().savefig(savefile)
+                plt.gcf().savefig(savefile, format='.pdf')
 
         if feature_subsets is None:
             feature_subsets = Interactive.get_feature_subsets(self, data_types)
@@ -281,7 +281,7 @@ class Interactive(object):
 
             if savefile is not '':
                 self.maybe_make_directory(savefile)
-                plt.gcf().savefig(savefile)
+                plt.gcf().savefig(savefile, format='pdf')
 
         if feature_subsets is None:
             feature_subsets = Interactive.get_feature_subsets(self, data_types)
@@ -406,7 +406,7 @@ class Interactive(object):
             plt.tight_layout()
             if savefile is not '':
                 self.maybe_make_directory(savefile)
-                plt.gcf().savefig(savefile)
+                plt.gcf().savefig(savefile, format='.pdf')
 
         if feature_subsets is None:
             feature_subsets = Interactive.get_feature_subsets(self,
@@ -458,7 +458,7 @@ class Interactive(object):
             plt.tight_layout()
             if savefile is not '':
                 self.maybe_make_directory(savefile)
-                plt.gcf().savefig(savefile)
+                plt.gcf().savefig(savefile, format='.pdf')
 
         if feature_subsets is None:
             feature_subsets = Interactive.get_feature_subsets(self,
