@@ -140,7 +140,6 @@ class Interactive(object):
                 self.maybe_make_directory(savefile)
                 # f = plt.gcf()
                 pca.reduced_fig.savefig(savefile, format='pdf')
-                sys.stderr.write(os.getcwd())
                 # add "violins" after the provided filename, but before the
                 # extension
                 violins_file = "_".join([".".join(savefile.split('.')[:-1]),
